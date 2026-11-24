@@ -1,0 +1,9 @@
+3D GP5 pure GP: max weight error vs 120-digit weights
+ell/D  cond(C1) cond(C1)^3 |   dbl fac   dbl asm |  quad fac  quad asm | chol 1D/3D (dbl)
+    3  9.24e+04   7.89e+14 |   2.3e-10   3.3e-04 |   3.3e-16   3.3e-16 | ok/ok
+    6  2.41e+07   1.39e+22 |   3.7e-08   1.4e-01 |   4.4e-16   1.8e-15 | ok/FAIL
+   12  6.24e+09   2.43e+29 |   7.6e-05   1.8e+00 |   3.3e-16   2.8e-08 | ok/FAIL
+   16  6.25e+10   2.44e+32 |   1.3e-03   6.7e+00 |   4.4e-16   4.1e-05 | ok/FAIL
+   24  1.60e+12   4.12e+36 |   5.9e-02   2.8e+01 |   1.1e-16   1.8e-01 | ok/FAIL
+   32  1.60e+13   4.11e+39 |   5.4e-01   6.4e+00 |   2.2e-16   8.3e-02 | ok/FAIL
+   64  4.10e+15   6.91e+46 |   7.4e-01   1.2e+01 |   2.3e-15   5.7e-01 | FAIL/FAIL

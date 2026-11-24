@@ -1,0 +1,19 @@
+
+2D GP5, assembled vs factored LGP, 120-digit weights (check: vs 200-digit reference with erf and pi at full precision)
+ell/Delta    check |  max|w| asm  sum|w| asm growth | max|w| fac sum|w| fac  growth
+        3    5e-97 |   8.610e-01   4.514e+00        |      0.866     1.9122        
+        6    5e-94 |   1.678e+00   1.059e+01   1.23 |      0.869     1.9060 -0.0047
+       12    2e-91 |   4.981e+00   3.549e+01   1.74 |      0.870     1.9044 -0.0012
+       24    2e-88 |   1.820e+01   1.369e+02   1.95 |      0.871     1.9040 -0.0003
+       48    1e-85 |   7.107e+01   5.459e+02   2.00 |      0.871     1.9039 -0.0001
+      inf          |                                |      0.871     1.9039   (= 50149/57600 and 3427/1800)
+
+3D GP5, assembled vs factored LGP, 120-digit weights (check: vs 200-digit reference with erf and pi at full precision)
+ell/Delta    check |  max|w| asm  sum|w| asm growth | max|w| fac sum|w| fac  growth
+        3    3e-96 |   5.128e+00   1.262e+02        |      0.966     2.3959        
+        6    1e-93 |   2.655e+02   5.685e+03   5.49 |      0.967     2.3719 -0.0145
+       12    3e-91 |   1.555e+04   3.282e+05   5.85 |      0.968     2.3660 -0.0036
+       24    2e-86 |   9.716e+05   2.045e+07   5.96 |      0.968     2.3645 -0.0009
+       48    3e-79 |   6.180e+07   1.300e+09   5.99 |      0.968     2.3641 -0.0002
+      inf          |                                |      0.968     2.3640   (= 53508983/55296000 and 510623/216000)
+   1D polynomial weights: face ['1/30', '-13/60', '47/60', '9/20', '-1/20'], center ['3/640', '-29/480', '1067/960', '-29/480', '3/640']

@@ -1,0 +1,8 @@
+R=2: max |n^T P| = 0.0
+   z1(He_4) = 0.741964,  Rolle bound ell >= (R+1)/z1 = 4.043
+   min over ell in [0.1,50], x* in [-1/2,1/2] of |n.t|/(|n||t|) = 2.57e-8 at ell=50.0, x*=-0.5
+   signs of n.t seen: {mpf('1.0')}
+R=3: max |n^T P| = 1.99e-59
+   z1(He_6) = 0.616707,  Rolle bound ell >= (R+1)/z1 = 6.486
+   min over ell in [0.1,50], x* in [-1/2,1/2] of |n.t|/(|n||t|) = 1.19e-11 at ell=50.0, x*=0.5
+   signs of n.t seen: {mpf('-1.0')}

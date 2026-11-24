@@ -1,0 +1,12 @@
+1. second row  |P^T w - q|_max               = 4.4e-16
+2. 7-term expansion reproduces C w - T to      4.9e-16   (|C w - T|_max = 3.49e-04)
+3. component of C w - T outside range(P)      = 1.95e-06
+   projection keeping only the term with P^(1)lambda^(1): |proj(Cw-T)| = 9.55e-09, |proj(that term)| = 9.55e-09
+   projection keeping only the term with P^(2)lambda^(2): |proj(Cw-T)| = 2.58e-10, |proj(that term)| = 2.58e-10
+   projection keeping only the term with P^(3)lambda^(3): |proj(Cw-T)| = 2.58e-10, |proj(that term)| = 2.58e-10
+
+4. assembled 3D system: 125 + 64 = 189 unknowns
+   max |W_assembled - W_factored| = 5.392,  scale max|W_factored| = 0.966,  max|W_assembled| = 5.128
+   mode-1 unfolding sigma_2/sigma_1: assembled 5.03e-02, factored 1.0e-16
+   mode-2 unfolding sigma_2/sigma_1: assembled 4.28e-02, factored 9.2e-18
+   mode-3 unfolding sigma_2/sigma_1: assembled 4.28e-02, factored 8.3e-18

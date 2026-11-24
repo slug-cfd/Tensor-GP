@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "gptensor: Kronecker-factored Gaussian process reconstruction for finite volume methods"
+type: software
+version: 1.0.0
+license: MIT
+authors:
+  - family-names: Lee
+    given-names: Dongwook
+  - family-names: Riedel
+    given-names: Sean
+preferred-citation:
+  type: article
+  title: "Kronecker-factored Gaussian process reconstruction for high-order finite volume methods in multiple dimensions"
+  authors:
+    - family-names: Lee
+      given-names: Dongwook
+    - family-names: Riedel
+      given-names: Sean
+  journal: "Journal of Computational Physics"
+  year: 2026
+  notes: "Submitted"

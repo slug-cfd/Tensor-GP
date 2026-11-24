@@ -1,0 +1,17 @@
+(a) PURE GP, ell fixed in PHYSICAL units (ell/Delta = Lphys*N grows with N)
+
+  R=2 (GP5), ell_phys=0.05 (domain 1)
+         N   ell/D   cond(C1)         Linf    rate
+        32     1.6   7.20e+02    5.112e-03        
+        64     3.2   1.55e+05    2.049e-04    4.64
+       128     6.4   4.04e+07    6.733e-06    4.93
+       256    12.8   1.05e+10    2.129e-07    4.98
+       512    25.6   2.69e+12    7.107e-09    4.90
+
+  R=3 (GP7), ell_phys=0.05 (domain 1)
+         N   ell/D   cond(C1)         Linf    rate
+        32     1.6   3.56e+03    2.261e-03        
+        64     3.2   9.50e+06    2.788e-05    6.34
+       128     6.4   4.06e+10    2.363e-07    6.88
+       256    12.8   1.72e+14    3.425e-09    6.11
+       512    25.6   7.09e+17    3.478e-08   -3.34

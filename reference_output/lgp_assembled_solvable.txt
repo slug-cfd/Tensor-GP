@@ -1,0 +1,12 @@
+GP5, ell = 12 Delta, Q_3 border, V->P
+
+                  operator   arith | constraint resid  weight err   cond(C)
+--------------------------------------------------------------------------------
+          assembled 2D LGP  double |          1.4e-14     1.1e+00   3.9e+19
+          assembled 2D LGP    quad |          3.7e-15     1.4e-15   3.9e+19
+                           (0s)
+          assembled 3D LGP  double |          1.7e-13     1.6e+04   2.4e+29
+          assembled 3D LGP    quad |          1.2e-10     6.4e-04   2.4e+29
+                           (1s)
+       tensor 2D LGP (FSA)  double |     (1D: ~1e-16)     1.8e-08   6.2e+09
+       tensor 3D LGP (FSA)  double |     (1D: ~1e-16)     2.5e-08   6.2e+09

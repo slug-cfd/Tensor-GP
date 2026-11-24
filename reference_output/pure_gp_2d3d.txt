@@ -1,0 +1,21 @@
+
+2D, R=2 (GP5), PURE GP (normalized, no border), ell_phys=0.05
+      N   ell/D |  factored err   rate |  assembled err   rate
+     32     1.6 |     5.087e-03        |      5.087e-03       
+     64     3.2 |     2.047e-04   4.64 |      2.047e-04   4.64
+    128     6.4 |     6.731e-06   4.93 |      6.731e-06   4.93
+    256    12.8 |     2.129e-07   4.98 |      2.112e-07   4.99
+
+3D, R=2 (GP5), PURE GP (normalized, no border), ell_phys=0.05
+      N   ell/D |  factored err   rate |  assembled err   rate
+     16     0.8 |     4.267e-02        |      4.267e-02       
+     32     1.6 |     5.072e-03   3.07 |      5.072e-03   3.07
+     64     3.2 |     2.045e-04   4.63 |      2.045e-04   4.63
+     96     4.8 |     2.800e-05   2.87 |      2.800e-05   2.87
+
+3D, R=3 (GP7), PURE GP (normalized, no border), ell_phys=0.05
+      N   ell/D |  factored err   rate |  assembled err   rate
+     16     0.8 |     2.397e-02        |      2.397e-02       
+     32     1.6 |     2.246e-03   3.42 |      2.246e-03   3.42
+     64     3.2 |     2.782e-05   6.34 |      2.782e-05   6.34
+     96     4.8 |     1.734e-06   4.00 |      1.733e-06   4.01

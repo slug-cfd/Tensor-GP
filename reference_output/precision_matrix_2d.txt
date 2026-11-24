@@ -1,0 +1,8 @@
+2D GP5, box stencil, face Gauss points: weight error against 120-digit weights
+1/eps: double 4.5e+15, quadruple 5.2e+33; assembled LGP error relative to max|w_true|
+ell/D  cond(C1) cond(C1)^2 | pure GP:  dbl fac  dbl asm quad fac quad asm | LGP:  dbl fac  dbl asm quad fac quad asm | max|w| asm LGP
+   12  6.24e+09   3.89e+19 |           4.5e-05  8.4e+00  0.0e+00  2.8e-17 |       1.1e-05  2.5e+00  0.0e+00  1.5e-16 |       5.78e+00
+   40  9.55e+13   9.13e+27 |           7.8e-02  3.0e+01  6.9e-18  8.5e-09 |       4.6e-02  1.0e+00  0.0e+00  3.9e-09 |       6.49e+01
+   90  6.28e+16   3.94e+33 |           6.8e-01  2.7e+00  1.3e-14  2.0e-03 |       6.8e-01  1.0e+00  3.0e-15  5.0e-04 |       3.29e+02
+  120  6.27e+17   3.93e+35 |           4.2e-01  2.3e+00  3.2e-13  9.3e-02 |       2.5e-01  1.0e+00  7.4e-14  2.6e-03 |       5.85e+02
+  400  9.56e+21   9.13e+43 |           6.9e-01  1.7e+00  8.8e-08  2.9e-01 |       6.4e-01  1.0e+00  2.0e-08  9.8e-01 |       6.50e+03
