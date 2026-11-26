@@ -3,7 +3,7 @@
 Companion code for
 
 > D. Lee and S. Riedel, *Kronecker-factored Gaussian process reconstruction for high-order finite volume
-> methods in multiple dimensions*, submitted to the Journal of Computational Physics.
+> methods in multiple dimensions*, submitted to Computaters and Fluids.
 
 This repository contains the mathematics of the paper, namely the squared-exponential (SE) kernel for cell
 averages, the one-dimensional, factored (Kronecker) and assembled GP systems with and without the
