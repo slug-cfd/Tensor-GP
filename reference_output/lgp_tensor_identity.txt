@@ -1,18 +1,18 @@
 Same operator?  max |W_assembled - outer(w_x, w_y)|, 60-digit arithmetic
 
-  pure GP                              : 1.11e-16
+  pure GP                              : 2.42e-52
   LGP, assembled 2D with Q_3 border    : 3.54e-01   (16 constraints)
   LGP, assembled 2D with P_3 border    : 3.04e-01   (10 constraints)
 
   scale of the weights                 : 0.87
-  assembled pure GP      sigma_2/sigma_1 = 1.21e-17
+  assembled pure GP      sigma_2/sigma_1 = 2.82e-52
   assembled LGP, Q_3     sigma_2/sigma_1 = 2.14e-01
   assembled LGP, P_3     sigma_2/sigma_1 = 5.06e-01
 
   exact reproduction of x^a y^b ?   (residual)
    monomial |  tensor LGP  assembled Q3  assembled P3
-    x^3 y^3 |     0.0e+00       0.0e+00       0.0e+00
+    x^3 y^3 |     0.0e+00       2.0e-59       5.8e-55
     x^4 y^0 |     2.9e-02       2.8e-02       2.8e-02
-    x^2 y^2 |     8.7e-19       2.2e-16       5.7e-03
-    x^3 y^1 |     1.7e-18       0.0e+00       0.0e+00
-    x^4 y^1 |     0.0e+00       0.0e+00       0.0e+00
+    x^2 y^2 |     7.3e-61       1.6e-59       5.7e-03
+    x^3 y^1 |     2.8e-61       5.0e-60       2.3e-56
+    x^4 y^1 |     1.6e-61       7.9e-55       1.2e-54

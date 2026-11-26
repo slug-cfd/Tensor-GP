@@ -5,6 +5,7 @@ conditioning cannot be the explanation for any difference.
 """
 import itertools
 import numpy as np
+import mpmath
 from decimal import Decimal as D, getcontext
 import _setup  # noqa: F401
 from gptensor.kernels import c_avg_hp as SE_C1_hp, c_point_hp, mono_avg_hp as avg, power_hp as pw
@@ -31,14 +32,17 @@ pts = list(itertools.product(off, off))
 C2 = [[SE_C1_hp(a[0]-b[0], L)*SE_C1_hp(a[1]-b[1], L) for b in pts] for a in pts]
 t2 = [T1(D(a[0])-xs, L)*T1(D(a[1])-ys, L) for a in pts]
 
-def as_array(x): return np.array([float(v) for v in x]).reshape(5, 5)
-def tensor(wx, wy): return np.outer([float(v) for v in wx], [float(v) for v in wy])
+# keep the weights in 60-digit Decimal and convert to float only for printing,
+# so that the differences below are those of the 60-digit solves
+def as_array(x): return np.array(list(x), dtype=object).reshape(5, 5)
+def tensor(wx, wy): return np.array([[a*b for b in wy] for a in wx], dtype=object)
+def maxabs(A): return float(max(abs(v) for v in A.ravel()))
 
 print("Same operator?  max |W_assembled - outer(w_x, w_y)|, 60-digit arithmetic\n")
 
 W_asm = as_array(solve(C2, t2))
 W_ten = tensor(w1(xs, False), w1(ys, False))
-print(f"  pure GP                              : {np.max(np.abs(W_asm - W_ten)):.2e}")
+print(f"  pure GP                              : {maxabs(W_asm - W_ten):.2e}")
 
 # 2D bordered with the TENSOR-degree border Q_m: monomials x^a y^b, a,b <= m
 monQ = [(a, b) for a in range(m+1) for b in range(m+1)]
@@ -46,7 +50,7 @@ PQ = [[avg(a, p[0])*avg(b, p[1]) for (a, b) in monQ] for p in pts]
 qQ = [pw(xs, a)*pw(ys, b) for (a, b) in monQ]
 W_lgpQ = as_array(bordered(C2, t2, PQ, qQ))
 W_lgpT = tensor(w1(xs, True), w1(ys, True))
-print(f"  LGP, assembled 2D with Q_{m} border    : {np.max(np.abs(W_lgpQ - W_lgpT)):.2e}"
+print(f"  LGP, assembled 2D with Q_{m} border    : {maxabs(W_lgpQ - W_lgpT):.2e}"
       f"   ({len(monQ)} constraints)")
 
 # 2D bordered with the TOTAL-degree border P_m: a+b <= m
@@ -54,19 +58,21 @@ monP = [(a, b) for a in range(m+1) for b in range(m+1) if a+b <= m]
 PP = [[avg(a, p[0])*avg(b, p[1]) for (a, b) in monP] for p in pts]
 qP = [pw(xs, a)*pw(ys, b) for (a, b) in monP]
 W_lgpP = as_array(bordered(C2, t2, PP, qP))
-print(f"  LGP, assembled 2D with P_{m} border    : {np.max(np.abs(W_lgpP - W_lgpT)):.2e}"
+print(f"  LGP, assembled 2D with P_{m} border    : {maxabs(W_lgpP - W_lgpT):.2e}"
       f"   ({len(monP)} constraints)")
-print(f"\n  scale of the weights                 : {np.max(np.abs(W_lgpT)):.2f}")
+print(f"\n  scale of the weights                 : {maxabs(W_lgpT):.2f}")
 
-# rank-1 test: an outer product has sigma_2 = 0
+# rank-1 test: an outer product has sigma_2 = 0 (singular values in 60 digits)
+mpmath.mp.dps = 60
 for lab, W in (("assembled pure GP", W_asm), ("assembled LGP, Q_3", W_lgpQ), ("assembled LGP, P_3", W_lgpP)):
-    s = np.linalg.svd(W, compute_uv=False)
-    print(f"  {lab:22s} sigma_2/sigma_1 = {s[1]/s[0]:.2e}")
+    S = mpmath.svd_r(mpmath.matrix([[mpmath.mpf(str(v)) for v in row] for row in W]), compute_uv=False)
+    s = sorted((S[k] for k in range(S.rows)), reverse=True)
+    print(f"  {lab:22s} sigma_2/sigma_1 = {float(s[1]/s[0]):.2e}")
 
 # which polynomials does each operator reproduce exactly (2D, cell-avg data, point target)?
 def repro(W, a, b):
-    got = sum(W[i, j]*float(avg(a, off[i]))*float(avg(b, off[j])) for i in range(5) for j in range(5))
-    return abs(got - float(pw(xs, a)*pw(ys, b)))
+    got = sum(W[i, j]*avg(a, off[i])*avg(b, off[j]) for i in range(5) for j in range(5))
+    return float(abs(got - pw(xs, a)*pw(ys, b)))
 print("\n  exact reproduction of x^a y^b ?   (residual)")
 print(f"  {'monomial':>9} | {'tensor LGP':>11} {'assembled Q3':>13} {'assembled P3':>13}")
 for (a, b) in ((3, 3), (4, 0), (2, 2), (3, 1), (4, 1)):
